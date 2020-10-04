@@ -7,9 +7,9 @@ User can chcek current weather information using free open weather API.
 - App changes the background image depending on the type of weather (Cloudy, Sunny and Rainy).
 
 ## Requirements
-- iOS 10.3+
+- iOS 13.0+
 - Xcode 11.6+
-- Swift 4.0+
+- Swift 4.2+
 
 ## API
 - Sign-up for a OpenWeatherMap account at https://openweathermap.org/
