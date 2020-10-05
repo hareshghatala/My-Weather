@@ -7,12 +7,17 @@
 //
 
 import UIKit
+import CoreLocation
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        Thread.sleep(forTimeInterval: 2.0)
+        sleep(2) //for delaying launch screen
+        let locationInstance = GPSService.sharedInstance
+        locationInstance.delegate = self
+        locationInstance.startUpdatingLocation()
+        
         return true
     }
 
@@ -30,6 +35,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
     }
 
-
 }
 
+extension AppDelegate: GPSServiceDelegate {
+    
+    func tracingLocation(currentLocation: CLLocation) {
+        print(currentLocation)
+        if !SharedClass.sharedInstance.isLocationReceived {
+            NotificationCenter.default.post(name: .getWeatherData, object: nil, userInfo: nil)
+            SharedClass.sharedInstance.isLocationReceived = true
+        }
+    }
+    
+    func tracingLocationDidFailWithError(error: NSError) {
+        print(error.localizedDescription)
+    }
+    
+}

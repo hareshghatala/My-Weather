@@ -58,5 +58,11 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+    <key>NSLocationAlwaysUsageDescription</key>
+    <string>App requires GPS coordinates to fetch weather information.</string>
+    <key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+    <string>App requires GPS coordinates to fetch weather information.</string>
+    <key>NSLocationWhenInUseUsageDescription</key>
+    <string>App requires GPS coordinates to fetch weather information.</string>
 </dict>
 </plist>
